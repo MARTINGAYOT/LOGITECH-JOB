@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Gayot — Sr Finance & Pricing Operations Analyst · Logitech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,500;1,9..144,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --stone:    #faf7f2;
+  --stone2:   #f0ebe1;
+  --stone3:   #e4ddd0;
+  --ink:      #1c1914;
+  --ink2:     #3a3530;
+  --ink3:     #6b6560;
+  --ink4:     #9c9690;
+  --sienna:   #c45c30;
+  --sienna2:  #a84d28;
+  --sienna-p: rgba(196,92,48,.1);
+  --sienna-g: rgba(196,92,48,.06);
+  --teal:     #2a6b65;
+  --teal2:    #1f514c;
+  --teal-p:   rgba(42,107,101,.1);
+  --rule:     #ddd7cd;
+  --rule2:    #ccc5b8;
+  --white:    #ffffff;
+  --serif:    'Fraunces',Georgia,serif;
+  --sans:     'Outfit',system-ui,sans-serif;
+  --mono:     'JetBrains Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--stone);color:var(--ink2);font-family:var(--sans);font-size:15px;line-height:1.65;overflow-x:hidden}
+
+/* ─── CURSOR ─── */
+*,*::before,*::after{cursor:none!important}
+#c1,#c2{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#c1{width:7px;height:7px;background:var(--sienna);transition:transform .12s,background .2s}
+#c2{width:26px;height:26px;border:1.5px solid var(--sienna);opacity:.35;transition:all .28s ease}
+
+/* ─── NAV ─── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;
+  background:rgba(250,247,242,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+#nav.scrolled{border-color:var(--rule)}
+.nav-id{display:flex;align-items:center;gap:14px}
+.nav-monogram{
+  width:32px;height:32px;border-radius:6px;
+  background:var(--sienna);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;font-weight:500;color:#fff;letter-spacing:-.02em;
+}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--ink)}
+.nav-sub{font-size:11px;color:var(--ink4);letter-spacing:.04em}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:500;color:var(--ink3);text-decoration:none;
+  letter-spacing:.03em;transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1.5px;
+  background:var(--sienna);transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+.nav-links a:hover{color:var(--sienna)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-pill{
+  padding:8px 20px;background:var(--sienna)!important;
+  color:#fff!important;border-radius:100px;font-size:12px!important;font-weight:600!important;
+  letter-spacing:.04em!important;transition:background .2s, transform .2s!important;
+}
+.nav-pill:hover{background:var(--sienna2)!important;transform:translateY(-1px)!important}
+.nav-pill::after{display:none!important}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100vh;padding-top:58px;
+  display:grid;grid-template-rows:1fr auto;
+  position:relative;overflow:hidden;
+}
+
+/* Decorative background rings */
+.hero-rings{
+  position:absolute;right:-180px;top:50%;transform:translateY(-50%);
+  width:700px;height:700px;pointer-events:none;
+}
+.ring{
+  position:absolute;border-radius:50%;border:1px solid var(--rule);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+
+/* Grain texture overlay */
+#hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events:none;opacity:.6;
+}
+
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;
+  padding:72px 52px 60px;
+  display:grid;grid-template-columns:1fr 380px;
+  gap:64px;align-items:center;
+}
+
+/* Stagger entrance */
+.hero-inner>*{opacity:0;animation:hIn .75s ease forwards}
+.hero-inner>*:nth-child(1){animation-delay:.08s}
+.hero-inner>*:nth-child(2){animation-delay:.28s}
+@keyframes hIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;color:var(--sienna);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1.5px;background:var(--sienna)}
+
+.hero-name{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(56px,6vw,90px);line-height:.9;
+  color:var(--ink);letter-spacing:-.04em;margin-bottom:10px;
+}
+.hero-name em{color:var(--sienna);font-style:italic;font-weight:500}
+
+.hero-role{
+  font-family:var(--serif);font-size:clamp(17px,2vw,22px);
+  font-style:italic;font-weight:300;color:var(--ink3);margin-bottom:28px;
+}
+
+.hero-pitch{
+  font-size:16px;line-height:1.8;color:var(--ink3);
+  max-width:520px;margin-bottom:36px;
+}
+
+/* Tag pills */
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:40px}
+.htag{
+  padding:5px 13px;border:1px solid var(--rule2);border-radius:100px;
+  font-size:12px;font-weight:500;color:var(--ink3);background:var(--white);
+  transition:all .2s;
+}
+.htag:hover{border-color:var(--sienna);color:var(--sienna);background:var(--sienna-g)}
+.htag.key{background:var(--sienna);color:#fff;border-color:var(--sienna)}
+
+.hero-btns{display:flex;gap:12px}
+.btn-a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 30px;background:var(--sienna);color:#fff;
+  text-decoration:none;font-size:13px;font-weight:600;border-radius:100px;
+  transition:all .2s;letter-spacing:.02em;
+}
+.btn-a:hover{background:var(--sienna2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,92,48,.3)}
+.btn-b{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border:1.5px solid var(--rule2);color:var(--ink3);
+  text-decoration:none;font-size:13px;font-weight:500;border-radius:100px;
+  transition:all .2s;
+}
+.btn-b:hover{border-color:var(--sienna);color:var(--sienna)}
+
+/* ─── STAT CARD (hero right) ─── */
+.stat-card{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(28,25,20,.08);
+}
+.stat-card-top{
+  padding:20px 22px;border-bottom:1px solid var(--rule);
+  background:var(--stone2);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.stat-card-label{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.1em;text-transform:uppercase}
+.stat-live{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:var(--teal)}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule)}
+.stat-cell{
+  background:var(--white);padding:20px 18px;
+  transition:background .2s;
+}
+.stat-cell:hover{background:var(--stone)}
+.stat-n{
+  font-family:var(--serif);font-size:34px;font-weight:700;
+  color:var(--ink);line-height:1;margin-bottom:4px;
+}
+.stat-n .u{font-size:18px;color:var(--sienna)}
+.stat-l{font-family:var(--mono);font-size:10px;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.stat-sub{font-size:11px;color:var(--teal);font-weight:500}
+
+.stat-languages{
+  padding:16px 20px;border-top:1px solid var(--rule);
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.lang-tag{
+  padding:4px 10px;background:var(--stone2);border:1px solid var(--rule);
+  border-radius:100px;font-family:var(--mono);font-size:10px;color:var(--ink3);
+}
+
+.stat-contact{
+  padding:16px 20px;border-top:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:8px;
+}
+.sc-row{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink3)}
+.sc-dot{width:4px;height:4px;border-radius:50%;background:var(--sienna);flex-shrink:0}
+.sc-row strong{color:var(--ink);font-weight:500}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  position:relative;z-index:1;
+  background:var(--ink);overflow:hidden;
+  padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.marquee-track{display:flex;width:max-content;animation:marquee 35s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:0 28px;white-space:nowrap;
+  font-family:var(--mono);font-size:11px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.mi-l{color:rgba(255,255,255,.3)}
+.mi-v{color:var(--sienna);font-weight:500}
+.mi-sep{color:rgba(255,255,255,.15);font-size:14px;margin:0 2px}
+
+/* ─── SHARED SECTION CHROME ─── */
+.sec{padding:100px 0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 52px}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:56px}
+.sh-n{font-family:var(--mono);font-size:11px;color:var(--sienna);letter-spacing:.1em}
+.sh-t{font-family:var(--serif);font-size:38px;font-weight:700;color:var(--ink);letter-spacing:-.025em}
+.sh-r{flex:1;height:1px;background:var(--rule);margin-bottom:5px}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ─── EXPERIENCE – timeline layout ─── */
+#xp{background:var(--white)}
+
+.timeline{position:relative;padding-left:36px}
+.timeline::before{
+  content:'';position:absolute;left:7px;top:8px;bottom:0;
+  width:1.5px;background:var(--rule2);
+}
+
+.job{
+  position:relative;margin-bottom:64px;
+  opacity:0;transform:translateX(-8px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.job.on{opacity:1;transform:translateX(0)}
+.job::before{
+  content:'';position:absolute;left:-32px;top:8px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--stone2);border:2px solid var(--rule2);
+  transition:all .3s;
+}
+.job:hover::before{background:var(--sienna);border-color:var(--sienna)}
+.job.featured::before{background:var(--sienna);border-color:var(--sienna);width:14px;height:14px;left:-33px;top:7px}
+
+.job-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:4px;flex-wrap:wrap;gap:8px;
+}
+.job-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);line-height:1.2}
+.job-dates{font-family:var(--mono);font-size:11px;color:var(--ink4);white-space:nowrap;padding-top:4px}
+.job-co{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--sienna);margin-bottom:4px;
+}
+.co-pip{width:3px;height:14px;background:var(--sienna);border-radius:2px}
+.job-loc{font-size:12px;color:var(--ink4);margin-bottom:14px}
+.job-ctx{
+  font-size:13px;font-style:italic;color:var(--ink3);
+  padding:9px 16px;border-left:2.5px solid var(--sienna);
+  background:var(--sienna-g);border-radius:0 6px 6px 0;
+  margin-bottom:18px;
+}
+.job-buls{list-style:none}
+.job-buls li{
+  position:relative;padding-left:18px;
+  font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:9px;
+}
+.job-buls li::before{
+  content:'';position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;background:var(--sienna);opacity:.5;
+}
+.job-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chip{
+  padding:3px 10px;background:var(--stone);border:1px solid var(--rule);
+  border-radius:100px;font-family:var(--mono);font-size:10px;color:var(--ink4);
+  transition:all .2s;
+}
+.chip:hover{border-color:var(--sienna);color:var(--sienna);background:var(--sienna-g)}
+
+/* ─── SKILLS ─── */
+#sk{background:var(--stone)}
+
+.sk-wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.sk-card{
+  background:var(--white);border:1px solid var(--rule);border-radius:12px;
+  padding:28px 26px;transition:box-shadow .25s,transform .25s;
+}
+.sk-card:hover{box-shadow:0 12px 40px rgba(28,25,20,.08);transform:translateY(-2px)}
+.sk-card-h{
+  font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);
+  margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:10px;
+}
+.sk-icon{
+  width:28px;height:28px;border-radius:6px;
+  background:var(--sienna-p);display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+.sk-row{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.sk-name{font-size:13px;color:var(--ink2);width:185px;flex-shrink:0;line-height:1.3}
+.sk-track{flex:1;height:3px;background:var(--stone2);border-radius:2px;overflow:hidden}
+.sk-bar{height:100%;border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.sk-bar.s{background:linear-gradient(90deg,var(--sienna2),var(--sienna))}
+.sk-bar.t{background:linear-gradient(90deg,var(--teal2),var(--teal))}
+.sk-pct{font-family:var(--mono);font-size:11px;color:var(--ink4);width:30px;text-align:right}
+
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
+.badge{
+  padding:7px 14px;border:1px solid var(--rule2);border-radius:6px;
+  font-size:12px;font-weight:500;color:var(--ink3);background:var(--white);
+  display:flex;align-items:center;gap:7px;transition:all .2s;
+}
+.badge:hover{border-color:var(--sienna);color:var(--sienna);background:var(--sienna-g)}
+.badge-pip{width:5px;height:5px;border-radius:50%;background:var(--sienna)}
+
+/* ─── EDUCATION ─── */
+#ed{background:var(--white)}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.edu-card{
+  border:1px solid var(--rule);border-radius:12px;overflow:hidden;
+  background:var(--white);transition:box-shadow .25s,transform .25s;
+}
+.edu-card:hover{box-shadow:0 12px 40px rgba(28,25,20,.08);transform:translateY(-3px)}
+.edu-stripe{height:5px}
+.edu-card:nth-child(1) .edu-stripe{background:linear-gradient(90deg,var(--sienna2),var(--sienna))}
+.edu-card:nth-child(2) .edu-stripe{background:linear-gradient(90deg,var(--teal2),var(--teal))}
+.edu-card:nth-child(3) .edu-stripe{background:linear-gradient(90deg,#6b6560,#9c9690)}
+.edu-body{padding:24px 22px}
+.edu-deg{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:5px}
+.edu-inst{font-size:12px;font-weight:600;color:var(--sienna);margin-bottom:4px}
+.edu-dt{font-family:var(--mono);font-size:11px;color:var(--ink4);margin-bottom:16px}
+.edu-pts{list-style:none}
+.edu-pts li{
+  font-size:13px;color:var(--ink3);margin-bottom:7px;
+  padding-left:14px;position:relative;line-height:1.5;
+}
+.edu-pts li::before{content:'·';position:absolute;left:0;color:var(--sienna);font-size:18px;line-height:1.15}
+
+/* ─── WHY LOGITECH ─── */
+#why{background:var(--ink);position:relative;overflow:hidden}
+#why::before{
+  content:'';position:absolute;top:-300px;left:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(196,92,48,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+#why::after{
+  content:'';position:absolute;bottom:-200px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(42,107,101,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+#why .sh-t{color:#fff}
+#why .sh-n{color:rgba(255,255,255,.35)}
+#why .sh-r{background:rgba(255,255,255,.1)}
+
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;overflow:hidden;position:relative;z-index:1;
+}
+.why-card{
+  background:rgba(255,255,255,.03);padding:40px 36px;
+  position:relative;overflow:hidden;transition:background .25s;
+}
+.why-card:hover{background:rgba(255,255,255,.07)}
+.why-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sienna),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.why-card:hover::after{opacity:1}
+.why-n{
+  font-family:var(--serif);font-size:56px;font-weight:900;font-style:italic;
+  color:rgba(255,255,255,.06);line-height:1;margin-bottom:14px;
+}
+.why-label{
+  font-family:var(--mono);font-size:11px;color:var(--sienna);
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;
+}
+.why-body{font-size:15px;line-height:1.8;color:rgba(255,255,255,.55)}
+.why-body strong{color:rgba(255,255,255,.92);font-weight:500}
+
+/* ─── CONTACT ─── */
+#ct{background:var(--stone);border-top:1px solid var(--rule)}
+
+.ct-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ct-head{
+  font-family:var(--serif);font-size:clamp(44px,5vw,62px);font-weight:900;
+  color:var(--ink);line-height:.95;letter-spacing:-.03em;margin-bottom:22px;
+}
+.ct-head em{color:var(--sienna);font-style:italic;font-weight:500}
+.ct-body{font-size:15px;color:var(--ink3);line-height:1.75;margin-bottom:32px}
+.ct-dets{display:flex;flex-direction:column;gap:13px}
+.ct-row{display:flex;align-items:center;gap:16px}
+.ct-l{font-family:var(--mono);font-size:11px;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;width:72px;flex-shrink:0}
+.ct-v{font-size:14px;color:var(--ink2)}
+.ct-v.hi{color:var(--sienna);font-weight:500}
+
+.avail-box{
+  background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:32px
+}
+.avail-title{font-family:var(--mono);font-size:10px;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+.av-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink3);margin-bottom:10px}
+.av-check{color:var(--teal);font-size:16px;flex-shrink:0;margin-top:1px}
+.avail-quote{
+  margin-top:22px;padding-top:20px;border-top:1px solid var(--rule);
+  font-family:var(--serif);font-size:15px;font-style:italic;
+  color:var(--ink4);line-height:1.7;
+}
+.avail-quote::before{
+  content:'"';font-size:36px;color:var(--sienna);line-height:.6;
+  display:block;margin-bottom:8px;font-style:normal;
+}
+
+footer{
+  background:var(--ink);padding:24px 52px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.25);
+}
+footer a{color:var(--sienna);text-decoration:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}.stat-card{display:none}
+  .sk-wrap,.edu-grid,.why-grid,.ct-layout{grid-template-columns:1fr}
+  #nav{padding:0 20px}.nav-links{display:none}
+  .wrap{padding:0 24px}.hero-inner{padding:56px 24px 40px}
+  .sec{padding:70px 0}.timeline{padding-left:24px}
+}
+</style>
+</head>
+<body>
+
+<div id="c1"></div>
+<div id="c2"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-id">
+    <div class="nav-monogram">MG</div>
+    <div>
+      <div class="nav-name">Martin Gayot</div>
+      <div class="nav-sub">Logitech · Sr Finance & Pricing Ops</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#xp">Experience</a></li>
+    <li><a href="#sk">Skills</a></li>
+    <li><a href="#ed">Education</a></li>
+    <li><a href="#why">Why Logitech</a></li>
+    <li><a href="#ct" class="nav-pill">Get in Touch ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- decorative rings -->
+  <div class="hero-rings" aria-hidden="true">
+    <div class="ring" style="width:200px;height:200px;opacity:.4"></div>
+    <div class="ring" style="width:350px;height:350px;opacity:.25"></div>
+    <div class="ring" style="width:500px;height:500px;opacity:.15"></div>
+    <div class="ring" style="width:680px;height:680px;opacity:.08"></div>
+  </div>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-eyebrow">Sr Finance & Pricing Operations · Logitech for Business</div>
+      <h1 class="hero-name">Martin<br><em>Gayot.</em></h1>
+      <p class="hero-role">Pricing strategy, analytics & operational excellence</p>
+      <p class="hero-pitch">7+ years building data-driven pricing models, owning discount effectiveness and elasticity analyses, and designing governance workflows that make pricing decisions stick — across B2B environments, distributed teams, and 10+ countries.</p>
+      <div class="hero-tags">
+        <span class="htag key">Price Elasticity</span>
+        <span class="htag key">Discount Analytics</span>
+        <span class="htag key">B2B Pricing</span>
+        <span class="htag">Big 4 · Deloitte</span>
+        <span class="htag">Advanced Excel</span>
+        <span class="htag">SQL · Tableau</span>
+        <span class="htag">Salesforce / CPQ</span>
+        <span class="htag">DFW Metro · Remote</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#xp" class="btn-a">View Experience ↓</a>
+        <a href="#ct" class="btn-b">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: stat card -->
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-card-label">Career at a Glance</div>
+        <div class="stat-live"><div class="live-dot"></div>Profile Active</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-l">Experience</div>
+          <div class="stat-n">7<span class="u">+ yrs</span></div>
+          <div class="stat-sub">Finance & Pricing</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-l">Geographies</div>
+          <div class="stat-n">10<span class="u">+</span></div>
+          <div class="stat-sub">US · EU · Caribbean</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-l">Audit Pedigree</div>
+          <div class="stat-n" style="font-size:22px;padding-top:4px">Big 4</div>
+          <div class="stat-sub">Deloitte Luxembourg</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-l">Location</div>
+          <div class="stat-n" style="font-size:20px;padding-top:4px">DFW</div>
+          <div class="stat-sub">Metro · Remote Ready</div>
+        </div>
+      </div>
+      <div class="stat-languages">
+        <span class="lang-tag">🇫🇷 French (native)</span>
+        <span class="lang-tag">🇬🇧 English (native)</span>
+        <span class="lang-tag">🇪🇸 Spanish (pro)</span>
+      </div>
+      <div class="stat-contact">
+        <div class="sc-row"><div class="sc-dot"></div><span>martinhgayot@outlook.com</span></div>
+        <div class="sc-row"><div class="sc-dot"></div><span>+1 817-718-1588</span></div>
+        <div class="sc-row"><div class="sc-dot"></div><span>Available immediately</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="xp" class="sec">
+  <div class="wrap rv">
+    <div class="sh">
+      <span class="sh-n">01</span>
+      <h2 class="sh-t">Work Experience</h2>
+      <div class="sh-r"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="job featured rv" data-delay="0">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Financial & Growth Advisor</div>
+            <div class="job-co"><div class="co-pip"></div>Guardian</div>
+            <div class="job-loc">Texas, USA · Remote</div>
+          </div>
+          <div class="job-dates">Oct 2024 – Jan 2026</div>
+        </div>
+        <div class="job-ctx">Pricing strategy, financial modeling, and operational analytics in a full-cycle advisory role.</div>
+        <ul class="job-buls">
+          <li>Designed multi-scenario pricing models and sensitivity analyses to evaluate pricing strategies, product packaging decisions, and revenue trajectories under varying market and discount conditions — directly informing go-to-market decisions.</li>
+          <li>Conducted price elasticity and discount effectiveness analyses across client portfolios, identifying optimal pricing structures and flagging margin leakage from inconsistent discounting practices.</li>
+          <li>Built automated Excel dashboards with pivot tables, power queries, and dynamic KPI tracking — enabling real-time performance monitoring and significantly reducing manual reporting overhead.</li>
+          <li>Owned the full revenue forecasting cycle — incorporating pipeline inputs, pacing assumptions, and KPI-linked projections to support quarterly targets and resource planning.</li>
+          <li>Performed cohort analyses and attribution reviews to identify high-value segments, assess retention patterns, and prioritize acquisition vs. expansion pricing strategies.</li>
+          <li>Built and sold a fully integrated financial model and operational workflow ecosystem as a packaged asset — end-to-end ownership of pricing infrastructure design.</li>
+        </ul>
+        <div class="job-chips">
+          <span class="chip">Price Elasticity</span><span class="chip">Sensitivity Modeling</span><span class="chip">KPI Dashboards</span><span class="chip">Excel Advanced</span><span class="chip">Go-to-Market</span>
+        </div>
+      </div>
+
+      <div class="job rv d1">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Regional Manager — Finance & Analysis</div>
+            <div class="job-co"><div class="co-pip"></div>Vacasa</div>
+            <div class="job-loc">Belize · Remote with U.S. HQ</div>
+          </div>
+          <div class="job-dates">Jan 2022 – Sep 2024</div>
+        </div>
+        <div class="job-ctx">Multi-region pricing oversight and cross-functional analytics for a high-value real estate portfolio.</div>
+        <ul class="job-buls">
+          <li>Owned revenue forecasting, margin reviews, and variance reporting for multi-region portfolios — used directly by U.S. leadership for pricing decisions, budgeting, and resource allocation.</li>
+          <li>Conducted scenario analyses to evaluate rate changes, market entry, and portfolio mix — applying price elasticity and competitive benchmarking to drive regional pricing strategy.</li>
+          <li>Partnered with Sales, Operations, and Finance leadership to connect pricing strategy to financial outcomes; built monthly and quarterly materials including pricing variance analyses.</li>
+          <li>Built and maintained financial dashboards and KPI reporting frameworks — automating recurring reports and improving data reliability for centralized finance teams.</li>
+          <li>Standardized pricing data flows, documentation, and governance controls across multiple regions — improving consistency, auditability, and efficiency.</li>
+        </ul>
+        <div class="job-chips">
+          <span class="chip">Competitive Benchmarking</span><span class="chip">Variance Analysis</span><span class="chip">Pricing Governance</span><span class="chip">Cross-functional</span>
+        </div>
+      </div>
+
+      <div class="job rv d2">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Financial Auditor</div>
+            <div class="job-co"><div class="co-pip"></div>Deloitte</div>
+            <div class="job-loc">Luxembourg · EU · Big 4</div>
+          </div>
+          <div class="job-dates">Jul 2019 – Nov 2020</div>
+        </div>
+        <div class="job-ctx">Specialist team: Private Equity & Alternative Investment Funds — IFRS & Luxembourg GAAP.</div>
+        <ul class="job-buls">
+          <li>Conducted rigorous variance analyses, analytical reviews, and risk assessments across fund performance, valuation models, and management fee structures — Big 4 precision in financial data validation.</li>
+          <li>Evaluated internal controls, compliance frameworks, and documentation governance for complex multi-entity structures — directly applicable to pricing governance and approval workflows.</li>
+          <li>Collaborated with CFOs, fund managers, and legal teams across multiple jurisdictions to validate data accuracy and financial statement integrity.</li>
+          <li>Built and reviewed financial models for executive and regulatory audiences — translating complex quantitative data into defensible narratives.</li>
+        </ul>
+        <div class="job-chips">
+          <span class="chip">IFRS</span><span class="chip">Financial Controls</span><span class="chip">Data Validation</span><span class="chip">Big 4 Rigor</span>
+        </div>
+      </div>
+
+      <div class="job rv d3">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Finance & Operations Assistant</div>
+            <div class="job-co"><div class="co-pip"></div>First Law International</div>
+            <div class="job-loc">Belgium · EU · 10-month contract</div>
+          </div>
+          <div class="job-dates">Jan 2017 – Nov 2017</div>
+        </div>
+        <div class="job-ctx">Accounting operations and financial reporting across multiple European legal entities.</div>
+        <ul class="job-buls">
+          <li>Supported AP/AR, billing, reconciliations, and expense management across multiple European entities — foundational financial operations experience.</li>
+          <li>Prepared monthly reports and KPI summaries; managed logistics budgeting and vendor negotiations for a 250+ partner global conference.</li>
+        </ul>
+        <div class="job-chips">
+          <span class="chip">AP/AR</span><span class="chip">Multi-entity Reporting</span><span class="chip">Event Finance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="sk" class="sec">
+  <div class="wrap rv">
+    <div class="sh">
+      <span class="sh-n">02</span>
+      <h2 class="sh-t">Skills & Tools</h2>
+      <div class="sh-r"></div>
+    </div>
+    <div class="sk-wrap">
+      <div class="sk-card rv">
+        <div class="sk-card-h"><div class="sk-icon">◈</div>Pricing & Analytics</div>
+        <div class="sk-row"><div class="sk-name">Price Elasticity Modeling</div><div class="sk-track"><div class="sk-bar s" data-w="92"></div></div><div class="sk-pct">92%</div></div>
+        <div class="sk-row"><div class="sk-name">Discount Effectiveness</div><div class="sk-track"><div class="sk-bar s" data-w="90"></div></div><div class="sk-pct">90%</div></div>
+        <div class="sk-row"><div class="sk-name">Competitive Benchmarking</div><div class="sk-track"><div class="sk-bar s" data-w="87"></div></div><div class="sk-pct">87%</div></div>
+        <div class="sk-row"><div class="sk-name">Margin & Revenue Analysis</div><div class="sk-track"><div class="sk-bar s" data-w="93"></div></div><div class="sk-pct">93%</div></div>
+        <div class="sk-row"><div class="sk-name">B2B / Channel Pricing</div><div class="sk-track"><div class="sk-bar s" data-w="85"></div></div><div class="sk-pct">85%</div></div>
+        <div class="sk-row"><div class="sk-name">Scenario & Sensitivity</div><div class="sk-track"><div class="sk-bar s" data-w="91"></div></div><div class="sk-pct">91%</div></div>
+      </div>
+      <div class="sk-card rv d1">
+        <div class="sk-card-h"><div class="sk-icon">◇</div>Tools & Technology</div>
+        <div class="sk-row"><div class="sk-name">Excel (Advanced)</div><div class="sk-track"><div class="sk-bar t" data-w="96"></div></div><div class="sk-pct">96%</div></div>
+        <div class="sk-row"><div class="sk-name">Salesforce / CRM</div><div class="sk-track"><div class="sk-bar t" data-w="75"></div></div><div class="sk-pct">75%</div></div>
+        <div class="sk-row"><div class="sk-name">Tableau / Looker</div><div class="sk-track"><div class="sk-bar t" data-w="68"></div></div><div class="sk-pct">68%</div></div>
+        <div class="sk-row"><div class="sk-name">Oracle / NetSuite</div><div class="sk-track"><div class="sk-bar t" data-w="78"></div></div><div class="sk-pct">78%</div></div>
+        <div class="sk-row"><div class="sk-name">SQL (developing)</div><div class="sk-track"><div class="sk-bar t" data-w="55"></div></div><div class="sk-pct">55%</div></div>
+        <div class="sk-row"><div class="sk-name">CPQ Workflow Concepts</div><div class="sk-track"><div class="sk-bar t" data-w="65"></div></div><div class="sk-pct">65%</div></div>
+      </div>
+      <div class="sk-card rv d2">
+        <div class="sk-card-h"><div class="sk-icon">◎</div>Financial Modeling</div>
+        <div class="sk-row"><div class="sk-name">Driver-based Forecasting</div><div class="sk-track"><div class="sk-bar s" data-w="92"></div></div><div class="sk-pct">92%</div></div>
+        <div class="sk-row"><div class="sk-name">Variance & Flux Analysis</div><div class="sk-track"><div class="sk-bar s" data-w="90"></div></div><div class="sk-pct">90%</div></div>
+        <div class="sk-row"><div class="sk-name">KPI Dashboard Design</div><div class="sk-track"><div class="sk-bar s" data-w="88"></div></div><div class="sk-pct">88%</div></div>
+        <div class="sk-row"><div class="sk-name">IFRS / US GAAP</div><div class="sk-track"><div class="sk-bar s" data-w="89"></div></div><div class="sk-pct">89%</div></div>
+      </div>
+      <div class="sk-card rv d3">
+        <div class="sk-card-h"><div class="sk-icon">◻</div>Collaboration & Leadership</div>
+        <div class="sk-row"><div class="sk-name">Cross-functional Collab.</div><div class="sk-track"><div class="sk-bar t" data-w="94"></div></div><div class="sk-pct">94%</div></div>
+        <div class="sk-row"><div class="sk-name">Executive Communication</div><div class="sk-track"><div class="sk-bar t" data-w="91"></div></div><div class="sk-pct">91%</div></div>
+        <div class="sk-row"><div class="sk-name">Process Documentation</div><div class="sk-track"><div class="sk-bar t" data-w="87"></div></div><div class="sk-pct">87%</div></div>
+        <div class="sk-row"><div class="sk-name">Change Management</div><div class="sk-track"><div class="sk-bar t" data-w="82"></div></div><div class="sk-pct">82%</div></div>
+      </div>
+    </div>
+    <div class="badge-row rv" style="margin-top:36px">
+      <div class="badge"><div class="badge-pip"></div>IFRS Certified</div>
+      <div class="badge"><div class="badge-pip"></div>US GAAP</div>
+      <div class="badge"><div class="badge-pip"></div>Luxembourg GAAP</div>
+      <div class="badge"><div class="badge-pip"></div>EDLC Advanced Excel</div>
+      <div class="badge"><div class="badge-pip"></div>Big 4 · Deloitte</div>
+      <div class="badge"><div class="badge-pip"></div>Multi-entity Finance</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="ed" class="sec">
+  <div class="wrap rv">
+    <div class="sh">
+      <span class="sh-n">03</span>
+      <h2 class="sh-t">Education</h2>
+      <div class="sh-r"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card rv">
+        <div class="edu-stripe"></div>
+        <div class="edu-body">
+          <div class="edu-deg">Master in Business Engineering — Finance</div>
+          <div class="edu-inst">Solvay Brussels School (ULB)</div>
+          <div class="edu-dt">Sept 2019 – Aug 2021 · Brussels, Belgium</div>
+          <ul class="edu-pts">
+            <li>Specialization in financial modeling, IFRS, Corporate Finance, Econometrics</li>
+            <li>Thesis: Structural Barriers to Capital Access in Emerging Economies</li>
+            <li>Coursework: Derivatives, Optimization & Decision Sciences</li>
+          </ul>
+        </div>
+      </div>
+      <div class="edu-card rv d1">
+        <div class="edu-stripe"></div>
+        <div class="edu-body">
+          <div class="edu-deg">Bachelor in Corporate Finance</div>
+          <div class="edu-inst">Emlyon Business School · France</div>
+          <div class="edu-dt">Aug 2016 – Jul 2019 · Exchange: Queen's University</div>
+          <ul class="edu-pts">
+            <li>Derivatives, Portfolio Analysis, Risk Management, Financial Modeling</li>
+            <li>EDLC Advanced Excel — macros, power queries, audit-proof design</li>
+            <li>Research: PE auditing, fair value, internal controls</li>
+          </ul>
+        </div>
+      </div>
+      <div class="edu-card rv d2">
+        <div class="edu-stripe"></div>
+        <div class="edu-body">
+          <div class="edu-deg">Associate's in Business Management</div>
+          <div class="edu-inst">St. John's College — Belize</div>
+          <div class="edu-dt">Oct 2015 – Jul 2016 · Graduated with Honors</div>
+          <ul class="edu-pts">
+            <li>Foundational Accounting, Financial Mathematics, Business Law</li>
+            <li>Top performance across economics and quantitative coursework</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LOGITECH -->
+<section id="why" class="sec">
+  <div class="wrap rv">
+    <div class="sh">
+      <span class="sh-n">04</span>
+      <h2 class="sh-t">Why Logitech</h2>
+      <div class="sh-r"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv">
+        <div class="why-n">01</div>
+        <div class="why-label">The Right Problem</div>
+        <div class="why-body">Logitech's B2B pricing challenge is genuinely complex — a diverse hardware portfolio, global distribution channels, enterprise and SMB segments. <strong>That's exactly where I've built my career:</strong> analytical depth in pricing and margin work, with the operational rigor to make governance actually stick at scale.</div>
+      </div>
+      <div class="why-card rv d1">
+        <div class="why-n">02</div>
+        <div class="why-label">The Dual Mandate</div>
+        <div class="why-body">This role requires both <strong>analytical rigor and operational execution</strong> — those rarely live in the same person. At Vacasa, I owned both: running elasticity analyses and competitive benchmarking while standardizing the data flows that made decisions repeatable. At Guardian, I built the model and the process simultaneously.</div>
+      </div>
+      <div class="why-card rv d2">
+        <div class="why-n">03</div>
+        <div class="why-label">The CPQ Opportunity</div>
+        <div class="why-body">The CPQ implementation is a genuine area of interest. I've worked in <strong>Salesforce-adjacent environments</strong> and understand the challenge of translating pricing logic into scalable approval workflows — and the change management required to get real adoption across Sales and Finance teams.</div>
+      </div>
+      <div class="why-card rv d3">
+        <div class="why-n">04</div>
+        <div class="why-label">Culture & Fit</div>
+        <div class="why-body">I've built financial operations autonomously across 10+ countries, remote-first. <strong>I'm in the DFW metro</strong>, aligned with the role's location, available immediately, and drawn to Logitech's culture of product excellence, global collaboration, and results-driven teamwork.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="ct" class="sec">
+  <div class="wrap">
+    <div class="ct-layout">
+      <div class="rv">
+        <h2 class="ct-head">Let's<br><em>connect.</em></h2>
+        <p class="ct-body">Available to interview immediately. Comfortable supporting West Coast hours from EST. If you're reading this, I'd welcome a conversation about the Logitech pricing team.</p>
+        <div class="ct-dets">
+          <div class="ct-row"><div class="ct-l">Email</div><div class="ct-v hi">martinhgayot@outlook.com</div></div>
+          <div class="ct-row"><div class="ct-l">Phone</div><div class="ct-v">+1 817-718-1588</div></div>
+          <div class="ct-row"><div class="ct-l">Location</div><div class="ct-v">Dallas / Fort Worth · EST · Remote</div></div>
+          <div class="ct-row"><div class="ct-l">Role</div><div class="ct-v">Sr Finance & Pricing Ops · Logitech</div></div>
+        </div>
+      </div>
+      <div class="avail-box rv d2">
+        <div class="avail-title">Availability & Fit</div>
+        <div class="av-item"><span class="av-check">✓</span>Available to interview immediately</div>
+        <div class="av-item"><span class="av-check">✓</span>DFW metro — aligned with role location</div>
+        <div class="av-item"><span class="av-check">✓</span>Supports West Coast hours from EST</div>
+        <div class="av-item"><span class="av-check">✓</span>Fully remote-capable, distributed teams</div>
+        <div class="av-item"><span class="av-check">✓</span>French · English · Spanish fluency</div>
+        <div class="av-item"><span class="av-check">✓</span>Travel available when needed</div>
+        <div class="avail-quote">I don't want a role where I execute instructions. I want to own the model, build the process around it, and make pricing work better than it did before.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Martin Gayot · Sr Finance & Pricing Operations Analyst · Logitech Application 2026</div>
+  <div><a href="https://www.logitech.com/en-us/business" target="_blank">Logitech for Business ↗</a></div>
+</footer>
+
+<script>
+// ── Cursor ───────────────────────────────────────────
+const c1=document.getElementById('c1'),c2=document.getElementById('c2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function t(){
+  c1.style.left=mx+'px';c1.style.top=my+'px';
+  rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
+  c2.style.left=rx+'px';c2.style.top=ry+'px';
+  requestAnimationFrame(t);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{c1.style.transform='translate(-50%,-50%) scale(2.5)';c1.style.background='var(--teal)'});
+  el.addEventListener('mouseleave',()=>{c1.style.transform='translate(-50%,-50%) scale(1)';c1.style.background='var(--sienna)'});
+});
+
+// ── Nav scroll ───────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
+});
+
+// ── Marquee ──────────────────────────────────────────
+const items=[
+  ['Price Elasticity','Expert'],['Discount Analytics','Advanced'],
+  ['Excel Proficiency','96/100'],['Years Experience','7+'],
+  ['B2B Pricing','Multi-region'],['Geographies','10+ countries'],
+  ['Big 4 Audit','Deloitte'],['Languages','FR · EN · ES'],
+  ['Location','DFW Metro'],['Salesforce','Experienced'],
+  ['CPQ Workflows','Familiar'],['IFRS','Certified'],
+  ['US GAAP','Proficient'],['Forecasting','Full-cycle'],
+  ['SQL','Developing'],['Looker / Tableau','Working'],
+];
+const track=document.getElementById('marquee');
+[...items,...items].forEach(([l,v])=>{
+  const d=document.createElement('div');
+  d.className='marquee-item';
+  d.innerHTML=`<span class="mi-l">${l}</span><span class="mi-sep">·</span><span class="mi-v">${v}</span>`;
+  track.appendChild(d);
+});
+
+// ── Intersection observer ─────────────────────────────
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      // animate skill bars
+      e.target.querySelectorAll('.sk-bar').forEach(b=>{
+        setTimeout(()=>{b.style.width=b.dataset.w+'%'},150);
+      });
+    }
+  });
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+
+document.querySelectorAll('.rv,.job').forEach(el=>obs.observe(el));
+
+// ── Delay helper ─────────────────────────────────────
+document.querySelectorAll('.d1').forEach(el=>el.style.transitionDelay='.12s');
+document.querySelectorAll('.d2').forEach(el=>el.style.transitionDelay='.22s');
+document.querySelectorAll('.d3').forEach(el=>el.style.transitionDelay='.32s');
+document.querySelectorAll('.d4').forEach(el=>el.style.transitionDelay='.42s');
+</script>
+</body>
+</html>
